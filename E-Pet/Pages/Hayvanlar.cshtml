@@ -1,0 +1,189 @@
+@page
+@model E_Pet.Pages.Hayvanlar
+@{
+Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Pati Hayvan Listesi</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://img.freepik.com/photos-premium/gros-plan-motif-fleur-rose-fond-blanc-ai-generative_900751-904.jpg");
+            background-color: #f0f9fc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .logo {
+            background-color: #FAA4BD;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .logo img {
+            width: 90px;
+            height: 90px;
+            vertical-align: middle;
+        }
+
+        .logo h1 {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 36px;
+        }
+
+        span
+        {
+           background-color: white;
+            width: 50px;
+            height: 50px;
+        }
+
+        h3 
+        {
+            margin-top: 10px;
+            margin-bottom: 0px;
+            font-size: 30px;
+            text-align: center;
+            background-color: transparent;
+            width: 1040px;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .pet-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .pet-card {
+            width: 250px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pet-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .pet-card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .pet-card-content p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        footer {
+            background-color: #FAA4BD;
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <img
+        src="https://ssltr.com.tr/FileUpload/MediaFolder/66fd5c94a22095a5fefa097c/1620b6e6-46c2-4ed8-ac12-f1d688dc3b2d.png"
+        alt="Logo">
+    <h1>E-Pati</h1>
+</div>
+
+<main>
+    <h3><span>Hoşgeldiniz!<hr/></span></h3>
+    <div class="pet-list">
+        @foreach (var animal in Model.AnimalList)
+        {
+        <div class="pet-card">
+            <img src="@animal.ImgUrl" alt="@animal.Gender" onerror="this.src='https://via.placeholder.com/250';">
+            <div class="pet-card-content">
+                <p><strong> Hayvan Adı:</strong> @(animal.Name ?? "--")</p>
+                <p><strong>Cinsiyet:</strong> @animal.Gender</p>
+                <p><strong>Aşı Durumu:</strong> @(animal.VaccineStatus ?? "Bilinmiyor")</p>
+            </div>
+        </div>
+        }
+    </div>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="contact-icon-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/>
+            </svg>
+            <p>Telefon: <a href="tel:+444">444</a></p>
+        </div>
+        <div class="contact-icon-text">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
+            </svg>
+            <p>E-Posta: <a href="mailto:e-pet@gmail.tr">e-pet@gmail.tr</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

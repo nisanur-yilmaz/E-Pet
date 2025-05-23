@@ -1,0 +1,210 @@
+@page
+@model E_Pet.Pages.Hayvan_Ekleme
+@{
+ViewData["Title"] = "Hayvan Ekle";
+Layout = "_Layout";
+}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url("https://img.freepik.com/photos-premium/gros-plan-motif-fleur-rose-fond-blanc-ai-generative_900751-904.jpg");
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header, footer {
+        width: 100%;
+    }
+
+    header {
+        background-color: #FAA4BD;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    header nav ul {
+        list-style: none;
+    }
+
+    header nav ul li {
+        display: inline-block;
+        margin: 0 15px;
+    }
+
+    header nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .logo h1 {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 36px;
+    }
+
+    .img1 {
+        width: 90px;
+        height: 90px;
+        vertical-align: middle;
+    }
+
+    footer {
+        background-color: #FAA4BD;
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .container1 {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .container2 {
+        display: flex;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+       
+    }
+
+    .animal-form {
+        width: 400px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0px 40px 0px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="url"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+        margin-right: 10px;
+    }
+
+    .btn {
+        background-color: #FAA4BD;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .text-success, .text-danger {
+        margin-top: 10px;
+    }
+</style>
+
+<html lang="">
+<header>
+    <div class="logo">
+        <img class="img1"
+             src="https://ssltr.com.tr/FileUpload/MediaFolder/66fd5c94a22095a5fefa097c/1620b6e6-46c2-4ed8-ac12-f1d688dc3b2d.png"
+             alt="Logo">
+        <h1>E-Pati</h1>
+    </div>
+</header>
+
+<div class="container1">
+    <form method="post" class="animal-form">
+        <h2 class="container2">Hayvan Ekle</h2>
+        <div class="form-group">
+            <label for="animal-name">Hayvan Adı</label>
+            <input id="animal-name" asp-for="Animals.Name" placeholder="Örn: Pamuk" required/>
+            <span class="text-danger">@TempData["NameError"]</span>
+        </div>
+
+        <div class="form-group">
+            <label for="animal-type">Hayvan Türü</label>
+            <input type="text" id="animal-type" asp-for="Animals.Type" placeholder="Örn: Kedi, Köpek" required/>
+            <span class="text-danger">@TempData["TypeError"]</span>
+        </div>
+
+        <div class="form-group">
+            <label for="animal-image">Fotoğraf URL'si</label>
+            <input type="url" id="animal-image" asp-for="Animals.ImgUrl" placeholder="Örn: https://..." required/>
+            <span class="text-danger">@TempData["ImgUrlError"]</span>
+        </div>
+
+        <div class="form-group">
+            <label>Cinsiyet</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" asp-for="Animals.Gender" value="Dişi" required/> Dişi
+                </label>
+                <label>
+                    <input type="radio" asp-for="Animals.Gender" value="Erkek" required/> Erkek
+                </label>
+            </div>
+            <span class="text-danger">@TempData["GenderError"]</span>
+        </div>
+
+        <div class="form-group">
+            <label>Aşı Durumu</label>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" asp-for="Animals.VaccineStatus"/> Aşılı
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Kaydet</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(TempData["SuccessMessage"]?.ToString()))
+    {
+        <div class="text-success">@TempData["SuccessMessage"]</div>
+    }
+
+    @if (!string.IsNullOrEmpty(TempData["ErrorMessage"]?.ToString()))
+    {
+        <div class="text-danger">@TempData["ErrorMessage"]</div>
+    }
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>E-Pati © 2025</p>
+    </div>
+</footer>
+</html>

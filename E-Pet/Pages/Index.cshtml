@@ -1,0 +1,248 @@
+﻿@page
+@model IndexModel
+@{
+ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Pati Benzeri Web Sitesi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9fc;
+            background-image: url("https://img.freepik.com/photos-premium/gros-plan-motif-fleur-rose-fond-blanc-ai-generative_900751-904.jpg");
+        }
+
+        header {
+            background-color: #FAA4BD;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .logo h1 {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 36px;
+        }
+
+        .img1 {
+            width: 90px;
+            height: 90px;
+            vertical-align: middle;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #adopt {
+            padding: 40px;
+        }
+
+        #adopt h2, #adopt h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .pet-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .pet-card {
+            width: 500px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            padding-bottom: 20px;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .pet-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            display: block;
+        }
+
+        .pet-card h2 {
+            margin: 20px 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        h2, h3 {
+            color: #533B4D;
+        }
+
+        .pet-card button {
+            padding: 12px 24px;
+            background-color: #FAA4BD;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pet-card button:hover {
+            background-color: #533B4D;
+        }
+
+        footer {
+            background-color: #FAA4BD;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 0px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0px 10px 0px 10px;
+        }
+
+        .contact-icon-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #addanimal {
+            background-color: #FAA4BD;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            
+        }
+        #addanimal:hover
+        {
+            background-color: white; 
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <img class="img1"
+             src="https://ssltr.com.tr/FileUpload/MediaFolder/66fd5c94a22095a5fefa097c/1620b6e6-46c2-4ed8-ac12-f1d688dc3b2d.png"
+             alt="Logo">
+        <h1>E-Pati</h1>
+    </div>
+</header>
+
+
+<section id="adopt">
+    <div class="pet-list">
+        <div class="pet-card">
+            <img src="https://sevimlipettaksi.com/wp-content/uploads/2020/03/Kedi-Ve-Kopek-Ayni-Evde-Yasar-Mi-1.jpg"
+                 alt="Kedi ve Köpek">
+            <h2> Sahiplenilcek Hayvanlar</h2>
+            <a href="http://localhost:5198/Hayvanlar">
+                <button type="button">Detaylar</button>
+            </a>
+           
+        </div>
+    </div>
+    <form method="post"style=" margin: 5px 0px 30px 550px;">
+
+        <button asp-page="Hayvan_Ekleme" type="submit" id="addanimal" >
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed">
+                <path
+                    d="M520-400h80v-120h120v-80H600v-120h-80v120H400v80h120v120ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/>
+            </svg>
+        </button>
+    </form>
+</section>
+<footer>
+    <div class="footer-content">
+        <div class="contact-info">
+            <div class="contact-icon-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                     stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/>
+                </svg>
+                <p>Telefon: <a href="tel:+444">444</a></p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-icon-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                     stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
+                </svg>
+                <p>E-Posta: <a href="mailto:e-pet@gmail.tr">e-pet@gmail.tr</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function showDetails(petType) {
+        alert(petType + " hakkında detaylar için daha fazla bilgiye yönlendirileceksiniz.");
+    }
+</script>
+
+</body>
+</html>
