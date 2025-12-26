@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/nisanur/Desktop/c sharp/E-Pet/E-Pet/wwwroot/lib/resim1.jpg",
+      "PackagePath": "staticwebassets/lib/resim1.jpg"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.E-Pet.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

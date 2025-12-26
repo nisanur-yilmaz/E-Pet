@@ -156,3 +156,4 @@
 /Users/nisanur/Desktop/c sharp/E-Pet/E-Pet/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/nisanur/Desktop/c sharp/E-Pet/E-Pet/obj/Debug/net8.0/E-Pet.csproj.AssemblyReference.cache
 /Users/nisanur/Desktop/c sharp/E-Pet/E-Pet/obj/Debug/net8.0/E-Pet.csproj.CopyComplete
+/Users/nisanur/Desktop/c sharp/E-Pet/E-Pet/obj/Debug/net8.0/E-Pet.sourcelink.json
